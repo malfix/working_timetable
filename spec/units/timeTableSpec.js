@@ -64,7 +64,16 @@ describe("TimeTable", function(){
     expect(timetable.validateClocking()).toEqual([ 'clocking In must be after previous clocking out' ]);
   });
 
-  it("Overlapped time is invalid", function() {
+  // it("Minimum working time", function() {
+  //   timetable.addEnter("08:00");
+  //   timetable.addExit("09:00");
+  //   timetable.addEnter("10:30");
+  //   timetable.addExit("11:30");
+  //   expect(timetable.validateClocking()).toEqual([ 'you must work at least 7 hours' ]);
+  // });
+
+
+  it("Sum is correct", function() {
     timetable.addEnter("08:00");
     timetable.addExit("09:00");
     timetable.addEnter("10:30");
