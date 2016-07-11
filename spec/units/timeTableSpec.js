@@ -24,7 +24,7 @@ describe("TimeTable", function(){
 
 
   it("Empty timetable is not valid if empty", function() {
-    expect(timetable.isClockingValid()).toEqual(false);
+    expect(timetable.validateClocking()).toEqual([ 'must contain at least one element' ]);
   });
 
   describe("when there is an enter", function() {
@@ -33,17 +33,17 @@ describe("TimeTable", function(){
     });
 
     it("Is not valid if size is different", function() {
-      expect(timetable.isClockingValid()).toEqual(false);
+      expect(timetable.validateClocking()).toEqual([ 'different size' ]);
     });
 
     it("Is valid if size is equal", function() {
       timetable.addExit("12:00");
-      expect(timetable.isClockingValid()).toEqual(true);
+      expect(timetable.validateClocking()).toEqual([  ]);
     });
 
     it("Inverted clocking is invalid", function() {
       timetable.addExit("07:00");
-      expect(timetable.isClockingValid()).toEqual(false);
+      expect(timetable.validateClocking()).toEqual([ 'clocking In must be before clocking out' ]);
     });
 
   });
@@ -53,7 +53,7 @@ describe("TimeTable", function(){
     timetable.addExit("09:00");
     timetable.addEnter("12:00");
     timetable.addExit("09:00");
-    expect(timetable.isClockingValid()).toEqual(false);
+    expect(timetable.validateClocking()).toEqual([ 'clocking In must be before clocking out' ]);
   });
 
   it("Overlapped time is invalid", function() {
@@ -61,7 +61,7 @@ describe("TimeTable", function(){
     timetable.addExit("09:00");
     timetable.addEnter("08:30");
     timetable.addExit("09:30");
-    expect(timetable.isClockingValid()).toEqual(false);
+    expect(timetable.validateClocking()).toEqual([ 'clocking In must be after previous clocking out' ]);
   });
 
   it("Overlapped time is invalid", function() {
