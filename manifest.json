@@ -1,0 +1,19 @@
+{
+  "name": "Work Time",
+  "description": "How many hours have you worked?",
+  "version": "3.0",
+  "permissions": [
+    "http://srvpresenze.office.7pixel.it/Explora/Cart_complete.aspx"
+  ],
+  "browser_action": {
+    "default_title": "Work Time.."
+  },
+   "content_scripts": [
+    {
+      "matches": ["http://srvpresenze.office.7pixel.it/Explora/Cart_complete.aspx*"],
+      "js": ["external_lib/jquery-2.2.3.min.js", "lib/TimeTable.js", "lib/MontlyTimeTable.js", "view/cart_complete.js"],
+      "css": ["css/style.css"]
+    }
+  ],
+  "manifest_version": 2
+}

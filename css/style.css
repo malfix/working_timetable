@@ -1,0 +1,12 @@
+.ok{
+	color: green;
+	font-weight: bold;
+}
+.ko{
+	color: red;
+	font-weight: bold;
+}
+.zero{
+	color: gray;
+	font-weight: bold;
+}
