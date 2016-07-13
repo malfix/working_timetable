@@ -3,7 +3,7 @@ describe("TimeTable", function(){
   var TimeTable = require('../../lib/TimeTable');
 
   beforeEach(function() {
-    timetable = new TimeTable();
+    timetable = new TimeTable(new Date(2016, 07, 12, 23, 59, 59, 999));
   });
 
   it("Conversion to Minutes works", function() {
@@ -20,6 +20,10 @@ describe("TimeTable", function(){
     expect(timetable.minutesToText(60)).toEqual('01:00');
     expect(timetable.minutesToText(659)).toEqual('10:59');
     expect(timetable.minutesToText(1439)).toEqual('23:59');
+  });
+
+  it("Export cvs works for empty value", function() {
+    expect(timetable.toCvs()).toEqual('Fri Aug 12 2016 23:59:59 GMT+0200 (CEST);0');
   });
 
 
