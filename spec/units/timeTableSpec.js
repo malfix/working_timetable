@@ -7,28 +7,28 @@ describe("TimeTable", function(){
   });
 
   it("Conversion to Minutes works", function() {
-    expect(timetable.textToMinutes('00:00')).toEqual(0);
-    expect(timetable.textToMinutes('00:59')).toEqual(59);
-    expect(timetable.textToMinutes('01:00')).toEqual(60);
-    expect(timetable.textToMinutes('10:59')).toEqual(659);
-    expect(timetable.textToMinutes('23:59')).toEqual(1439);
+    expect(0).toEqual(timetable.textToMinutes('00:00'));
+    expect(59).toEqual(timetable.textToMinutes('00:59'));
+    expect(60).toEqual(timetable.textToMinutes('01:00'));
+    expect(659).toEqual(timetable.textToMinutes('10:59'));
+    expect(1439).toEqual(timetable.textToMinutes('23:59'));
   });
 
   it("Conversion to Text works", function() {
-    expect(timetable.minutesToText(0)).toEqual('00:00');
-    expect(timetable.minutesToText(59)).toEqual('00:59');
-    expect(timetable.minutesToText(60)).toEqual('01:00');
-    expect(timetable.minutesToText(659)).toEqual('10:59');
-    expect(timetable.minutesToText(1439)).toEqual('23:59');
+    expect('00:00').toEqual(timetable.minutesToText(0));
+    expect('00:59').toEqual(timetable.minutesToText(59));
+    expect('01:00').toEqual(timetable.minutesToText(60));
+    expect('10:59').toEqual(timetable.minutesToText(659));
+    expect('23:59').toEqual(timetable.minutesToText(1439));
   });
 
   it("Export cvs works for empty value", function() {
-    expect(timetable.toCvs()).toEqual('Fri Aug 12 2016 23:59:59 GMT+0200 (CEST);0');
+    expect('Fri Aug 12 2016 23:59:59 GMT+0200 (CEST);0').toEqual(timetable.toCsv());
   });
 
 
   it("Empty timetable is not valid if empty", function() {
-    expect(timetable.validateClocking()).toEqual([ 'must contain at least one element' ]);
+    expect([ 'must contain at least one element' ]).toEqual(timetable.validateClocking());
   });
 
   describe("when there is an enter", function() {
@@ -37,17 +37,17 @@ describe("TimeTable", function(){
     });
 
     it("Is not valid if size is different", function() {
-      expect(timetable.validateClocking()).toEqual([ 'different size' ]);
+      expect([ 'different size' ]).toEqual(timetable.validateClocking());
     });
 
     it("Is valid if size is equal", function() {
       timetable.addExit("12:00");
-      expect(timetable.validateClocking()).toEqual([  ]);
+      expect([  ]).toEqual(timetable.validateClocking());
     });
 
     it("Inverted clocking is invalid", function() {
       timetable.addExit("07:00");
-      expect(timetable.validateClocking()).toEqual([ 'clocking In must be before clocking out' ]);
+      expect([ 'clocking In must be before clocking out' ]).toEqual(timetable.validateClocking());
     });
 
   });
@@ -57,7 +57,7 @@ describe("TimeTable", function(){
     timetable.addExit("09:00");
     timetable.addEnter("12:00");
     timetable.addExit("09:00");
-    expect(timetable.validateClocking()).toEqual([ 'clocking In must be before clocking out' ]);
+    expect([ 'clocking In must be before clocking out' ]).toEqual(timetable.validateClocking());
   });
 
   it("Overlapped time is invalid", function() {
@@ -65,7 +65,7 @@ describe("TimeTable", function(){
     timetable.addExit("09:00");
     timetable.addEnter("08:30");
     timetable.addExit("09:30");
-    expect(timetable.validateClocking()).toEqual([ 'clocking In must be after previous clocking out' ]);
+    expect([ 'clocking In must be after previous clocking out' ]).toEqual(timetable.validateClocking());
   });
 
   // it("Minimum working time", function() {
@@ -73,7 +73,7 @@ describe("TimeTable", function(){
   //   timetable.addExit("09:00");
   //   timetable.addEnter("10:30");
   //   timetable.addExit("11:30");
-  //   expect(timetable.validateClocking()).toEqual([ 'you must work at least 7 hours' ]);
+  //   expect([ 'you must work at least 7 hours' ]).toEqual(timetable.validateClocking());
   // });
 
 
@@ -82,6 +82,6 @@ describe("TimeTable", function(){
     timetable.addExit("09:00");
     timetable.addEnter("10:30");
     timetable.addExit("11:30");
-    expect(timetable.getMinutesWorked()).toEqual(120);
+    expect(120).toEqual(timetable.getMinutesWorked());
   });
 }); 

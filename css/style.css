@@ -10,3 +10,14 @@
 	color: gray;
 	font-weight: bold;
 }
+
+#fixedContainer
+{
+    background-color:#ddd;
+  position: fixed;
+  width: 200px;
+  height: 100px;
+  left: 50%;
+  top: 0%;
+  margin-left: -100px; /*half the width*/
+}

@@ -8,7 +8,7 @@ describe("MoltlyTimeTable", function(){
   });
 
   it("with no days", function () {
-  	expect(montlytimetable.totalMinutesWorked()).toEqual(0);
+  	expect(0).toEqual(montlytimetable.totalMinutesWorked());
 
   });
 
@@ -17,21 +17,24 @@ describe("MoltlyTimeTable", function(){
   	timetable.addEnter('08:00');
   	montlytimetable.add(timetable)
 
-  	expect(montlytimetable.totalMinutesWorked()).toEqual(0);
+  	expect(0).toEqual(montlytimetable.totalMinutesWorked());
   });
   describe("with one valid day ", function(){
   	beforeEach(function() {
   	  timetable = new TimeTable();
   	  timetable.addEnter('08:00');
-	  timetable.addExit('12:00');
-	  montlytimetable.add(timetable)
+	    timetable.addExit('12:00');
+	    montlytimetable.add(timetable)
     });
     it("with one day", function () {
-  	  expect(montlytimetable.totalMinutesWorked()).toEqual(240);
-	});
+  	  expect(240).toEqual(montlytimetable.totalMinutesWorked());
+	  });
     it("with two day", function () {
   	  montlytimetable.add(timetable)
-  	  expect(montlytimetable.totalMinutesWorked()).toEqual(480);
+  	  expect(480).toEqual(montlytimetable.totalMinutesWorked());
+    });
+    it("toCsv works", function () {
+      expect('undefined;240\n').toEqual(montlytimetable.toCsv());
     });
   });
 

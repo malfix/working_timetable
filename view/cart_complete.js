@@ -1,5 +1,6 @@
 
 days=$('.rowSep').next();
+montlyTimeTable = new MontlyTimeTable(); 
 days.each(function( ) {
     dayTimeTable = new TimeTable();
 
@@ -14,9 +15,7 @@ days.each(function( ) {
 			dayTimeTable.addExit(uscita.substr(1,10));
 		} 
     })
-    
-    if (dayTimeTable.validateClocking().length == 0)
-        $(this).append( dayTimeTable.getMinutesWorked() );
-    else 
-    	$(this).append( dayTimeTable.validateClocking() );
+    montlyTimeTable.add(dayTimeTable);
 });
+$('body').append("<div id='fixedContainer'></div>")
+
