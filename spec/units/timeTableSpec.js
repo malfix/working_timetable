@@ -23,9 +23,14 @@ describe("TimeTable", function(){
   });
 
   it("Export cvs works for empty value", function() {
-    expect('Fri Aug 12 2016 23:59:59 GMT+0200 (CEST);0').toEqual(timetable.toCsv());
+    expect('Fri Aug 12 2016 23:59:59 GMT+0200 (CEST);must contain at least one element').toEqual(timetable.toCsv());
   });
 
+  it("Export cvs works for valid value", function() {
+    timetable.addEnter('00:01');
+    timetable.addExit('08:01');
+    expect('Fri Aug 12 2016 23:59:59 GMT+0200 (CEST);480').toEqual(timetable.toCsv());
+  });
 
   it("Empty timetable is not valid if empty", function() {
     expect([ 'must contain at least one element' ]).toEqual(timetable.validateClocking());

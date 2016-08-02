@@ -17,5 +17,6 @@ days.each(function( ) {
     })
     montlyTimeTable.add(dayTimeTable);
 });
-$('body').append("<div id='fixedContainer'></div>")
+$('body').append("<div id='fixedContainer'></div>");
 
+$('#fixedContainer').append(montlyTimeTable.toCsv());
