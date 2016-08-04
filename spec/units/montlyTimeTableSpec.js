@@ -34,7 +34,10 @@ describe("MoltlyTimeTable", function(){
   	  expect(480).toEqual(montlytimetable.totalMinutesWorked());
     });
     it("toCsv works", function () {
-      expect('undefined;240\n').toEqual(montlytimetable.toCsv());
+      expect('??;240\n').toEqual(montlytimetable.toCsv());
+    });
+    it("toHtml works", function () {
+      expect('??;240<br/>').toEqual(montlytimetable.toHtml());
     });
   });
 

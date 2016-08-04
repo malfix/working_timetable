@@ -15,9 +15,9 @@
 {
     background-color:#ddd;
   position: fixed;
-  width: 200px;
-  height: 100px;
-  left: 50%;
-  top: 0%;
-  margin-left: -100px; /*half the width*/
+  width: 250px;
+  height: 90%;
+  right: 0%;
+  top: 5%;
+  margin-left: -200px; /* */
 }

@@ -2,10 +2,13 @@
 days=$('.rowSep').next();
 montlyTimeTable = new MontlyTimeTable(); 
 days.each(function( ) {
-    dayTimeTable = new TimeTable();
+	dataFormatoTesto = $(this).prev().text().split(" ");
+	dataFormatoTestoGiorno = dataFormatoTesto[1].substr(0,3) + " " + dataFormatoTesto[2].split("/")[0];
+    dayTimeTable = new TimeTable(dataFormatoTestoGiorno);
 
     dayIn = $(this).find( ".entrata.curPointer" );
     dayIn.each(function( ) {
+
 		var entrata=$(this).text();
 		if (entrata != "") {
 			dayTimeTable.addEnter(entrata.substr(1,10));
@@ -19,4 +22,4 @@ days.each(function( ) {
 });
 $('body').append("<div id='fixedContainer'></div>");
 
-$('#fixedContainer').append(montlyTimeTable.toCsv());
+$('#fixedContainer').append(montlyTimeTable.toHtml());
