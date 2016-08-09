@@ -23,17 +23,17 @@ describe("TimeTable", function(){
   });
 
   it("Export cvs works for empty value", function() {
-    expect('12;must contain at least one element').toEqual(timetable.toCsv());
+    expect('12;0;').toEqual(timetable.toCsv());
   });
 
   it("Export cvs works for valid value", function() {
     timetable.addEnter('00:01');
     timetable.addExit('08:01');
-    expect('12;480').toEqual(timetable.toCsv());
+    expect('12;480;').toEqual(timetable.toCsv());
   });
 
   it("Empty timetable is not valid if empty", function() {
-    expect([ 'must contain at least one element' ]).toEqual(timetable.validateClocking());
+    expect([ ]).toEqual(timetable.validateClocking());
   });
 
   describe("when there is an enter", function() {

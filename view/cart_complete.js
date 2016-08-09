@@ -6,7 +6,7 @@ days.each(function( ) {
 	dataFormatoTestoGiorno = dataFormatoTesto[1].substr(0,3) + " " + dataFormatoTesto[2].split("/")[0];
     dayTimeTable = new TimeTable(dataFormatoTestoGiorno);
 
-    dayIn = $(this).find( ".entrata.curPointer" );
+    dayIn = $(this).find( ".entrata" );
     dayIn.each(function( ) {
 
 		var entrata=$(this).text();
@@ -20,6 +20,6 @@ days.each(function( ) {
     })
     montlyTimeTable.add(dayTimeTable);
 });
-$('body').append("<div id='fixedContainer'></div>");
+$('body').append("<table id='fixedContainer'><tr><th>Giorno</th><th>&Delta; giorno</th><th>&Delta; settimana</th><th>Note</th></tr></table>");
 
 $('#fixedContainer').append(montlyTimeTable.toHtml());
