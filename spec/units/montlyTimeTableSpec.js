@@ -13,7 +13,7 @@ describe("MoltlyTimeTable", function(){
   });
 
   it("with an invalid day", function () {
-  	timetable = new TimeTable();
+  	timetable = new TimeTable(09, 08, 2016);
   	timetable.addEnter('08:00');
   	montlytimetable.add(timetable)
 
@@ -21,7 +21,7 @@ describe("MoltlyTimeTable", function(){
   });
   describe("with one valid day ", function(){
   	beforeEach(function() {
-  	  timetable = new TimeTable();
+  	  timetable = new TimeTable(09, 08, 2016);
   	  timetable.addEnter('08:00');
 	    timetable.addExit('12:00');
 	    montlytimetable.add(timetable)
@@ -34,10 +34,10 @@ describe("MoltlyTimeTable", function(){
   	  expect(480).toEqual(montlytimetable.totalMinutesWorked());
     });
     it("toCsv works", function () {
-      expect('??;240;\n').toEqual(montlytimetable.toCsv());
+      expect('9;240;\n').toEqual(montlytimetable.toCsv());
     });
     it("toHtml works", function () {
-      expect("<tr><td>??</td><td class='ko'>240</td><td class='ko'>240</td><td></td><tr>").toEqual(montlytimetable.toHtml());
+      expect("<tr><td>9</td><td class='ko'>240</td><td class='ko'>240</td><td></td><tr>").toEqual(montlytimetable.toHtml());
     });
   });
 

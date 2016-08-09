@@ -3,7 +3,7 @@ describe("TimeTable", function(){
   var TimeTable = require('../../lib/TimeTable');
 
   beforeEach(function() {
-    timetable = new TimeTable("12");
+    timetable = new TimeTable(09, 08, 2016);
   });
 
   it("Conversion to Minutes works", function() {
@@ -23,13 +23,13 @@ describe("TimeTable", function(){
   });
 
   it("Export cvs works for empty value", function() {
-    expect('12;0;').toEqual(timetable.toCsv());
+    expect('9;0;').toEqual(timetable.toCsv());
   });
 
   it("Export cvs works for valid value", function() {
     timetable.addEnter('00:01');
     timetable.addExit('08:01');
-    expect('12;480;').toEqual(timetable.toCsv());
+    expect('9;480;').toEqual(timetable.toCsv());
   });
 
   it("Empty timetable is not valid if empty", function() {
