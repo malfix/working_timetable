@@ -11,6 +11,10 @@
 	font-weight: bold;
 }
 
+.highlight{
+  background-color:yellow ;
+}
+
 #fixedContainer
 {
   background-color:#fff ;
