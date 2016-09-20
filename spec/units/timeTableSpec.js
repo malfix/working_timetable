@@ -22,6 +22,15 @@ describe("TimeTable", function(){
     expect('23:59').toEqual(timetable.minutesToText(1439));
   });
 
+   it("Conversion to Minutes works with dots", function() {
+    expect(0).toEqual(timetable.textToMinutes('00.00'));
+    expect(59).toEqual(timetable.textToMinutes('&nbsp;00.59&nbsp;'));
+    expect(59).toEqual(timetable.textToMinutes('00.59'));
+    expect(60).toEqual(timetable.textToMinutes('01.00'));
+    expect(659).toEqual(timetable.textToMinutes('10.59'));
+    expect(1439).toEqual(timetable.textToMinutes('23.59'));
+  });
+
   it("Export cvs works for empty value", function() {
     expect('9;0;').toEqual(timetable.toCsv());
   });
