@@ -1,5 +1,6 @@
 $('body').append("<table id='fixedContainer'></table>");
-$('body').append("<div id='navbar'><span id='show'>Apri e ricarica le presenze </span><span id='hide'>Chiudi pannello presenze</span></div>");;
+$('body').append("<div id='navbar'><span id='show'><img id='icon1' class='icoopen' src=''/></span><span id='hide'><span id='show'><img id='icon2' class='icoclose' src=''/></span></div>");;
+
 	
 
 
@@ -19,8 +20,10 @@ $(function() {
 	$('#fixedContainer').hide()
 	$('#hide').hide();
 	$('#show').show();
-
-});
+	var imgURL = chrome.extension.getURL("img/list.png");
+	document.getElementById("icon1").src = imgURL;
+	document.getElementById("icon2").src = imgURL;
+	});
 
 function invert(){
 	$('#fixedContainer').toggle();

@@ -15,5 +15,8 @@
       "css": ["css/style.css"]
     }
   ],
+   "web_accessible_resources": [
+    "img/list.png"
+  ],
   "manifest_version": 2
 }
