@@ -24,4 +24,17 @@
   right: 0%;
   top: 5%;
   margin-left: -200px; /* */
+  z-index: 10000;
+}
+
+#navbar{
+  font-weight: bold;
+  background-color:#fff ;
+  position: fixed;
+  width: 100px;
+  height: 20%px;
+  right: 0px;
+  top: 0px;
+  margin-left: -100px; /* */
+  z-index: 10000;
 }

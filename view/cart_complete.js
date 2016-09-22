@@ -1,8 +1,32 @@
 $('body').append("<table id='fixedContainer'></table>");
-$('#fixedContainer').click(function() {
+$('body').append("<div id='navbar'><span id='show'>Apri e ricarica le presenze </span><span id='hide'>Chiudi pannello presenze</span></div>");;
+	
+
+
+$('#show').click(function() {
+	console.log('show');
+	invert();
 	reload(); 
 	}
 );
+$('#hide').click(function() {
+	console.log('hide');
+	invert();
+	}
+);
+
+$(function() {
+	$('#fixedContainer').hide()
+	$('#hide').hide();
+	$('#show').show();
+
+});
+
+function invert(){
+	$('#fixedContainer').toggle();
+	$('#hide').toggle();
+	$('#show').toggle();
+}
 
 function reload() {
 	$('#fixedContainer').text("")	;
