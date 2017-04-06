@@ -3,14 +3,14 @@
   "description": "Stai sotto o sopra?",
   "version": "4.0",
   "permissions": [
-    "http://10.10.178.169/HR-WorkFlow/servlet/hfpr_bcapcarte"
+    "http://hr.7pixel.it.lab.p7intranet.it/HR-WorkFlow/servlet/hfpr_bcapcarte"
   ],
   "browser_action": {
     "default_title": "Cartellino"
   },
    "content_scripts": [
     {
-      "matches": ["http://10.10.178.169/HR-WorkFlow/servlet/hfpr_bcapcarte*"],
+      "matches": ["http://hr.7pixel.it.lab.p7intranet.it/HR-WorkFlow/servlet/hfpr_bcapcarte*"],
       "js": ["external_lib/jquery-2.2.3.min.js", "lib/TimeTable.js", "lib/MontlyTimeTable.js", "view/cart_complete.js"],
       "css": ["css/style.css"]
     }
