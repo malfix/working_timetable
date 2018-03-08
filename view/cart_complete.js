@@ -30,7 +30,7 @@ function invert(){
 
 function reload() {
 	$('#fixedContainer').text("")
-	$('#fixedContainer').append("<tr><th>Giorno</th><th>&Delta giorno</th><th>&Delta settimana</th><th>Note</th></tr>")
+	$('#fixedContainer').append("<tr><th>Giorno</th><th>&Delta; giorno</th><th>&Delta; settimana</th><th>Note</th></tr>")
 	montlyTimeTable = new MontlyTimeTable()
 	var year =  $('[id$="_TxtAnno"]').find('option:selected').val()
 	var month =  $('[id$="_TxtMese"]').find('option:selected').val()
