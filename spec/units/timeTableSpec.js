@@ -98,4 +98,13 @@ describe("TimeTable", function(){
     timetable.addClocking("11:30")
     expect(120).toEqual(timetable.getMinutesWorked())
   })
+
+  it("Entries near , take the last one", function() {
+    timetable.addClocking("08:00")
+    timetable.addClocking("09:00")
+    timetable.addClocking("10:29")
+    timetable.addClocking("10:30")
+    timetable.addClocking("11:30")
+    expect(120).toEqual(timetable.getMinutesWorked())
+  })
 })
