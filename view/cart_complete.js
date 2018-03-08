@@ -35,7 +35,7 @@ function reload() {
 	var year =  $('[id$="_TxtAnno"]').find('option:selected').val()
 	var month =  $('[id$="_TxtMese"]').find('option:selected').val()
 
-	for (var i = 0 i < 31 i++){
+	for (var i = 0; i < 31; i++){
 		dayTimeTable = new TimeTable(i+1, month, year)
 	    dayIn =  $('[id$="_Grid1_' + i + '_3_viewDiv"]').find( "a" )
 		dayIn.each(function( ) {
