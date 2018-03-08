@@ -32,13 +32,13 @@ describe("TimeTable", function(){
   })
 
   it("Export cvs works for empty value", function() {
-    expect('90').toEqual(timetable.toCsv())
+    expect('9;0').toEqual(timetable.toCsv())
   })
 
   it("Export cvs works for valid value", function() {
     timetable.addClocking('00:01')
     timetable.addClocking('08:01')
-    expect('9480').toEqual(timetable.toCsv())
+    expect('9;480').toEqual(timetable.toCsv())
   })
 
   it("Empty timetable is not valid if empty", function() {

@@ -34,7 +34,7 @@ describe("MoltlyTimeTable", function(){
   	  expect(480).toEqual(montlytimetable.totalMinutesWorked())
     })
     it("toCsv works", function () {
-      expect('9240\n').toEqual(montlytimetable.toCsv())
+      expect('9;240\n').toEqual(montlytimetable.toCsv())
     })
     it("toHtml works", function () {
       expect("<tr><td>9</td><td class='ko'>240</td><td class='ko'>240</td><td></td><tr>").toEqual(montlytimetable.toHtml())
